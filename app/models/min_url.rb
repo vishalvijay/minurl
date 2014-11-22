@@ -5,8 +5,6 @@ class MinUrl < ActiveRecord::Base
   validates :url, url: true
   validate :token_alias_against_token
 
-  self.primary_key = :token
-
   has_many :min_url_requests
 
   before_validation :generate_token
@@ -15,6 +13,13 @@ class MinUrl < ActiveRecord::Base
 
   def self.find_by_token_or_token_alias token
     MinUrl.where("token = ? or token_alias = ?", token, token).first
+  end
+
+  def self.make_proper_url t_url
+    unless t_url.match(/^(http:\/\/|https:\/\/)/)
+      t_url = "http://#{t_url}"
+    end
+    t_url
   end
 
   private
