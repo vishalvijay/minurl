@@ -1,0 +1,39 @@
+class Api::V1::MinUrlsController < AppController
+  before_action :set_min_url, only: [:show, :update]
+
+  def create
+    @min_url = MinUrl.find_or_create_by(min_urls_params)
+    if @min_url
+      respond_with @min_url, status: :created, location: @min_url
+    else
+      respond_with @min_url.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @min_url.update(min_urls_params)
+      respond_with @min_url, status: :ok
+    else
+      respond_with @min_url.errors, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    if @min_url.update(min_urls_params)
+      respond_with @min_url, status: :ok
+    else
+      respond_with @min_url.errors, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+    def set_min_url
+      @min_url = MinUrl.find(params[:id])
+    end
+
+    def min_urls_params
+      params.require(:min_url).permit(:url, :token_alias)
+    end
+
+end

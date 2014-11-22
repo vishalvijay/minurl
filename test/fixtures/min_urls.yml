@@ -3,9 +3,9 @@
 one:
   url: MyString
   token: MyString
-  alias: MyString
+  token_alias: MyString
 
 two:
   url: MyString
   token: MyString
-  alias: MyString
+  token_alias: MyString

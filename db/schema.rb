@@ -24,15 +24,15 @@ ActiveRecord::Schema.define(version: 20141122190736) do
   add_index "min_url_requests", ["min_url_id"], name: "index_min_url_requests_on_min_url_id"
 
   create_table "min_urls", force: true do |t|
-    t.string   "url",        null: false
-    t.string   "token",      null: false
-    t.string   "alias",      null: false
+    t.string   "url",         null: false
+    t.string   "token",       null: false
+    t.string   "token_alias"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "min_urls", ["alias"], name: "index_min_urls_on_alias", unique: true
   add_index "min_urls", ["token"], name: "index_min_urls_on_token", unique: true
+  add_index "min_urls", ["token_alias"], name: "index_min_urls_on_token_alias", unique: true
   add_index "min_urls", ["url"], name: "index_min_urls_on_url", unique: true
 
 end
