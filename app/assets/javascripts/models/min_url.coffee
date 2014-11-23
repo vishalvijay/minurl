@@ -1,5 +1,5 @@
 class MU.M.MinUrl extends Backbone.RelationalModel
-  url: "/api/min_urls.json"
+  idAttribute: "token"
 
   relations: [
     type: Backbone.HasOne,
@@ -10,3 +10,27 @@ class MU.M.MinUrl extends Backbone.RelationalModel
       key: 'min_url'
     }
   ]
+
+  getUrl: ->
+    @get "url"
+
+  getShortUrl: ->
+    @get "short_url"
+
+  getAliasUrl: ->
+    @get "alias_url"
+
+  getToken: ->
+    @get "token"
+
+  getTokenAlias: ->
+    @get "token_alias"
+
+  getCreatedAt: ->
+    new Date(@get "created_at").toDateString()
+
+  getImageUrl: ->
+    @get "image_url"
+
+  getReport: ->
+    @get "report"

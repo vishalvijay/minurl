@@ -45,12 +45,12 @@ MU.U =
       parent.append view.render().el
 
   buildUrl: (url) ->
-    "#{MU.C.APP_URL}#{url}"
+    "#{MU.CN.APP_URL}#{url}"
 
   linkNavigate: (event) ->
     event.preventDefault()
     link = $(event.currentTarget).attr('href')
-    Backbone.history.navigate link.substr(MU.C.APP_URL.length), true
+    Backbone.history.navigate link.substr(MU.CN.APP_URL.length), true
 
   ellipsed: (string, limit) ->
     if not string or string.length <= limit

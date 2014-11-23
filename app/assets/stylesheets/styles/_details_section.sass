@@ -1,5 +1,27 @@
 .details-section
+  @extend .text-center
+  @extend .container-fluid
   background: white
   padding-top: $grid-gutter-width
   padding-bottom: $grid-gutter-width
   +box-shadow(0px 2px 2px 0px rgba(0, 0, 0, 0.2))
+  .col-short-url
+    +make-md-column-offset(4)
+    +make-md-column(4)
+    +respond-to
+      +make-sm-column-offset(3)
+      +make-sm-column(6)
+    .readonly
+      @extend .text-center
+      background: whitesmoke
+      +border-radius(0px)
+      &:focus, &:active
+        border-color: #cccccc
+        +box-shadow(none)
+    .url
+      margin-top: $grid-gutter-width/2
+    .form-inline
+      margin-top: $grid-gutter-width/2
+      input, button
+        width: 100%
+

@@ -12,7 +12,7 @@
           %li
             %a{href: "#", target: "_blank"}
             .github
-      .col-md-8
+      .col-md-8.h-f-t
         %ul.list-inline.pull-right
           %li
             %a Home

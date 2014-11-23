@@ -1,2 +1,22 @@
 .row
-  
+  .col-short-url
+    %form.short-url
+      .form-group
+        %input.form-control.input-lg.readonly{value: @mu.getShortUrl(), readonly: "readonly", data-toggle: "tooltip", data-placement: "top", title: "Press CTRL-C to copy"}
+    %a#share-button{addthis:url: @mu.getShortUrl(), addthis:title: "MinUrl - Making over a billion long URLs usable!"}
+    .url
+      %span.small Original : 
+      %a{href: @mu.getUrl()}=@mu.getUrl()
+    -unless @mu.getAliasUrl()
+      %form.form-inline#alias-form{:role => "form"}
+        .form-group.col-sm-9{data-toggle: "tooltip", data-placement: "top", title: "A custom name for generated url"}
+          %label.sr-only{:for => "#alias"} Alias name for your url
+          %input.form-control#alias{placeholder: "Alias name for your url", type: "text", name: "alias"}
+          %span.error{style: "display: none;"} Alias not available
+        .col-sm-3
+          %button.btn.btn-default.ladda-button{type: "submit", disabled: "disabled", data-style: "zoom-out"} Alias It
+    -else
+      .url
+        %span.small Alias : 
+        %a{href: @mu.getAliasUrl()}=@mu.getAliasUrl()
+    

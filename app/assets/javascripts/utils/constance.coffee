@@ -1,2 +1,2 @@
-MU.C =
+MU.CN =
   APP_URL: "/"

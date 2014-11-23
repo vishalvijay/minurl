@@ -13,7 +13,8 @@ class Api::V1::MinUrlsController < AppController
   end
 
   def update
-    if @min_url.update(min_urls_params)
+    @min_url.update(min_urls_params)
+    if @min_url.errors
       respond_with @min_url, status: :ok
     else
       respond_with @min_url.errors, status: :unprocessable_entity

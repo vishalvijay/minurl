@@ -5,6 +5,10 @@ class MU.V.Widget extends Backbone.View
   events:
     "submit #create-form" : "createSortUrl"
     "keyup #create-form input" : "valiadteUrl"
+    "change #create-form input" : "valiadteUrl"
+
+  initialize: ->
+    @collection = new MU.C.MinUrls()
 
   render: ->
     $(@el).html(@template())
@@ -18,13 +22,13 @@ class MU.V.Widget extends Backbone.View
     submitButton.start()
     input = @$("#create-form input")
     url = MU.U.getValue input
-    minUrl = new MU.M.MinUrl
-      url: url
+    @collection.reset()
+    Backbone.Relational.store.unregister(@minUrl) if @minUrl
     _this = @
-    minUrl.save [],
+    @minUrl = @collection.create {url: url},
       success: ->
         view = _this.$(".details-container")
-        MU.U.renderView view, new MU.V.Details(model: minUrl)
+        MU.U.renderView view, new MU.V.Details(model: _this.minUrl)
         view.slideDown()
       error: (data) ->
         if data.status = 422
