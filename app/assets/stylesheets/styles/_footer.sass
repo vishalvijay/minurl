@@ -1,0 +1,35 @@
+footer
+  @extend .text-center
+  color: $footer-color
+  background: $footer-bg
+  padding-top: $grid-gutter-width
+  padding-bottom: $grid-gutter-width/2
+  margin-top: $grid-gutter-width*2
+  .social-list
+    @extend .list-inline
+    margin-bottom: 0px
+    margin-top: $grid-gutter-width/2
+    .social
+      width: $grid-gutter-width
+      height: $grid-gutter-width
+      color: white
+      font-size: 20px
+      padding-top: 5px
+      &:hover
+        +opacity(.8)
+    .facebook
+      +fa-make(facebook)
+      @extend .social
+      background: #48649F
+    .google-plus
+      +fa-make(google-plus)
+      @extend .social
+      background: #D73D32
+    .github
+      +fa-make(github)
+      @extend .social
+      background: black
+  .list-inline
+    margin-top: $grid-gutter-width/2
+    a
+      color: white

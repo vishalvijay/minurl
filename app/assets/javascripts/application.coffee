@@ -1,0 +1,20 @@
+#= require jquery
+#= require jquery_ujs
+#= require spin
+#= require ladda
+#= require bootstrap-sprockets
+#= require hamlcoffee
+#= require plugins/jquery.ba-throttle-debounce
+#= require underscore
+#= require backbone
+#= require mu
+#= require utils/manifest
+#= require utils/constance
+#= require utils/utils
+#= require mu_app
+#= require_tree ./templates
+#= require_tree ./models
+#= require_tree ./collections
+#= require_tree ./views
+#= require router
+

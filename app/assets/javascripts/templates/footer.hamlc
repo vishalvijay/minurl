@@ -1,0 +1,23 @@
+%footer{:role => "contentinfo"}
+  .container
+    .row
+      .col-md-12
+        .brand
+          MinUrl
+        %ul.social-list
+          %li
+            %a{href: "#", target: "_blank"}
+              .facebook
+          %li
+            %a{href: "#", target: "_blank"}
+              .google-plus
+          %li
+            %a{href: "#", target: "_blank"}
+            .github
+        %ul.list-inline
+          %li
+            %a Home
+          %li
+            %a API
+          %li
+            %a About Us

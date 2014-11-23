@@ -41,3 +41,19 @@ gem 'spring',        group: :development
 gem "api-versions"
 gem 'haml'
 gem 'valid_url'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'compass-rails'
+gem "backbone-on-rails"
+gem 'haml_coffee_assets', git: "https://github.com/netzpirat/haml_coffee_assets"
+gem 'ladda-bootstrap-rails'
+gem 'execjs'
+gem 'font-awesome-sass'
+
+gem 'modernizr-rails'
+
+#heroku
+gem 'rails_12factor', group: :production
+gem 'heroku-deflater', :group => :production
+ruby "2.1.4"

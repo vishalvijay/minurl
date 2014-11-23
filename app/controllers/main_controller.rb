@@ -10,6 +10,5 @@ class MainController < ApplicationController
         @token = token
       end
     end
-    render nothing: true
   end
 end

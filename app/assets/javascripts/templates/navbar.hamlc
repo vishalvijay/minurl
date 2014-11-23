@@ -1,0 +1,18 @@
+%header.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-minurl-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} MinUrl
+    #bs-minurl-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"} Home
+        %li
+          %a{:href => "#"} API
+        %li
+          %a{:href => "#"} About Us
+.nav-content-fix

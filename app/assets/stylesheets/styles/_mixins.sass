@@ -1,0 +1,25 @@
+=respond-to($media: tab)
+  @if $media == mob
+    @media only screen and (max-width: $screen-xs-max)
+      @content
+  @else if $media == tab
+    @media only screen and (max-width: $screen-sm-max)
+      @content
+  @else if $media == only-tab
+    @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+      @content
+  @else if $media == desk
+    @media only screen and (min-width: $screen-md-min)
+      @content
+  @else if $media == desk-min
+    @media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-min + (($screen-md-max - $screen-md-min)/1.5))
+      @content
+  @else if $media == lg
+    @media only screen and (min-width: $screen-md-max+1)
+      @content
+=ellipsis($width: 100%)
+  +text-overflow()
+  width: $width
+=fa-make($icon)
+  @extend .fa
+  @extend .fa-#{$icon}

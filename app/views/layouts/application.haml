@@ -1,0 +1,7 @@
+!!!
+%html
+  %head= render :partial => 'layouts/header'
+  %body
+    .main-content
+      = yield
+    = javascript_include_tag 'application'

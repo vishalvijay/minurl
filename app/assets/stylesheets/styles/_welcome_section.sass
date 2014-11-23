@@ -1,0 +1,21 @@
+.welcome-section
+  @extend .container-fluid
+  background: $brand-primary
+  color: white
+  padding-top: $grid-gutter-width
+  padding-bottom: $grid-gutter-width
+  margin-bottom: $grid-gutter-width
+  font-weight: lighter
+  .main-col
+    @extend .text-center
+    +make-md-column-offset(3)
+    +make-md-column(6)
+    +respond-to(only-tab)
+      +make-md-column-offset(2)
+      +make-md-column(8)
+    input, button
+      width: 100%
+    h1
+      span
+        font-size: 20px
+      margin-bottom: $grid-gutter-width
