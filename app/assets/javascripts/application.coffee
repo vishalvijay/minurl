@@ -7,6 +7,7 @@
 #= require plugins/jquery.ba-throttle-debounce
 #= require underscore
 #= require backbone
+#= require backbone-relational
 #= require mu
 #= require utils/manifest
 #= require utils/constance

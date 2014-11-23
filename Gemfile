@@ -55,6 +55,7 @@ gem 'modernizr-rails'
 gem 'settingslogic'
 gem "browser"
 gem 'geocoder'
+gem 'backbone-relational-rails'
 
 #heroku
 gem 'rails_12factor', group: :production

@@ -40,7 +40,7 @@ class MinUrl < ActiveRecord::Base
   end
 
   def as_json(options = { })
-    super({methods: [:short_url, :alias_url, :report, :image_url]}.merge(options))
+    super({methods: [:short_url, :alias_url, :image_url, :report]}.merge(options))
   end
 
   def report

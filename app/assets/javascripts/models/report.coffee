@@ -1,0 +1,1 @@
+class MU.M.Report extends Backbone.RelationalModel
