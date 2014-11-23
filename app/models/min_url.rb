@@ -35,8 +35,12 @@ class MinUrl < ActiveRecord::Base
     "#{Settings.app_url}/#{token_alias}" if token_alias
   end
 
+  def image_url
+    "https://api.thumbalizr.com/?url=#{url}&width=300"
+  end
+
   def as_json(options = { })
-    super({methods: [:short_url, :alias_url, :report]}.merge(options))
+    super({methods: [:short_url, :alias_url, :report, :image_url]}.merge(options))
   end
 
   def report

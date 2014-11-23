@@ -1,7 +1,6 @@
 class MU.V.Widget extends Backbone.View
 
   template: JST['widget']
-  className: "welcome-section"
 
   events:
     "submit #create-form" : "createSortUrl"
@@ -14,6 +13,7 @@ class MU.V.Widget extends Backbone.View
   createSortUrl: (event) ->
     event.preventDefault()
     return unless @valiadteUrl()
+    @$(".details-container").slideUp()
     submitButton = Ladda.create($("#create-form button")[0])
     submitButton.start()
     input = @$("#create-form input")
@@ -23,7 +23,9 @@ class MU.V.Widget extends Backbone.View
     _this = @
     minUrl.save [],
       success: ->
-        console.log "Done"
+        view = _this.$(".details-container")
+        MU.U.renderView view, new MU.V.Details(model: minUrl)
+        view.slideDown()
       error: (data) ->
         if data.status = 422
           _this.$(".error").fadeIn()
