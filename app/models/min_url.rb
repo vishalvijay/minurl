@@ -11,15 +11,36 @@ class MinUrl < ActiveRecord::Base
 
   CHARS = ((48..57).to_a+(65..90).to_a+(97..122).to_a).map(&:chr)
 
-  def self.find_by_token_or_token_alias token
-    MinUrl.where("token = ? or token_alias = ?", token, token).first
+  def self.find_by_token_or_token_alias t_token
+    MinUrl.where("token = ? or token_alias = ?", t_token, t_token).first
   end
+
+  def self.is_token_alias_available t_token
+    return false unless t_token.present?
+    !find_by_token_or_token_alias t_token
+  end  
 
   def self.make_proper_url t_url
     unless t_url.match(/^(http:\/\/|https:\/\/)/)
       t_url = "http://#{t_url}"
     end
     t_url
+  end
+
+  def short_url
+    "#{Settings.app_url}/#{token}"
+  end
+
+  def alias_url
+    "#{Settings.app_url}/#{token_alias}" if token_alias
+  end
+
+  def as_json(options = { })
+    super({methods: [:short_url, :alias_url, :report]}.merge(options))
+  end
+
+  def report
+    MinUrlRequest.report self
   end
 
   private

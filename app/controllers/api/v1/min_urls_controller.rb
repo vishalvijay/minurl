@@ -25,6 +25,10 @@ class Api::V1::MinUrlsController < AppController
     respond_with @min_url
   end
 
+  def is_token_alias_available
+    respond_with({is_available: MinUrl.is_token_alias_available(params[:token_alias])})
+  end
+
   private
 
     def set_min_url
