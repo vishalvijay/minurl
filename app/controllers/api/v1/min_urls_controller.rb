@@ -8,7 +8,6 @@ class Api::V1::MinUrlsController < AppController
     if @min_url
       respond_with @min_url, status: :created, location: "/"
     else
-      logger.error "\n\n\n----#{@min_url.errors.full_messages}-----\n\n\n"
       respond_with @min_url.errors, status: :unprocessable_entity
     end
   end

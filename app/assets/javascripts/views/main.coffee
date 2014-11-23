@@ -28,7 +28,7 @@ class MU.V.Main extends Backbone.View
   renderSubviews: ->
     MU.U.renderView @$(".navbar-container"), @navbarView
     MU.U.renderView @$(".footer-container"), @footerView
-    MU.U.renderView @$(".welcome-section"), @widgetView
+    MU.U.renderView @$(".welcome-container"), @widgetView
   
   registerScreenResize: (key, callback) ->
     @screenResizeCallBacks[key] = callback

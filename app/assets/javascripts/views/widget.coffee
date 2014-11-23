@@ -1,6 +1,7 @@
 class MU.V.Widget extends Backbone.View
 
   template: JST['widget']
+  className: "welcome-section"
 
   events:
     "submit #create-form" : "createSortUrl"

@@ -1,15 +1,12 @@
 footer
-  @extend .text-center
   color: $footer-color
   background: $footer-bg
-  padding-top: $grid-gutter-width
-  padding-bottom: $grid-gutter-width/2
+  padding-top: $grid-gutter-width/4
   margin-top: $grid-gutter-width*2
   .social-list
     @extend .list-inline
-    margin-bottom: 0px
-    margin-top: $grid-gutter-width/2
     .social
+      @extend .text-center
       width: $grid-gutter-width
       height: $grid-gutter-width
       color: white
@@ -30,6 +27,6 @@ footer
       @extend .social
       background: black
   .list-inline
-    margin-top: $grid-gutter-width/2
+    padding-top: $grid-gutter-width/4
     a
       color: white

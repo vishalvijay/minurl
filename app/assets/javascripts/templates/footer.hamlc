@@ -1,9 +1,7 @@
 %footer{:role => "contentinfo"}
   .container
     .row
-      .col-md-12
-        .brand
-          MinUrl
+      .col-md-4
         %ul.social-list
           %li
             %a{href: "#", target: "_blank"}
@@ -14,10 +12,12 @@
           %li
             %a{href: "#", target: "_blank"}
             .github
-        %ul.list-inline
+      .col-md-8
+        %ul.list-inline.pull-right
           %li
             %a Home
           %li
             %a API
           %li
             %a About Us
+
