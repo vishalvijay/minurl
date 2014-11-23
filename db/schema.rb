@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 20141122190736) do
   create_table "min_url_requests", force: true do |t|
     t.string   "ip"
     t.string   "ref_url"
+    t.string   "browser"
+    t.string   "platform"
+    t.string   "country"
     t.integer  "min_url_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"

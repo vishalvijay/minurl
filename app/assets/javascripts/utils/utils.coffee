@@ -18,18 +18,12 @@ MU.U =
     view.val().trim()
 
   api: (options = {}) ->
-    defaultError = options.error
-    delete options.error
-    unless defaultError
-      defaultError = (data) ->
-        MU.app.view.showApiError()
     default_opt =
       contentType: "application/json"
-      accept: "application/vnd.min_url+json;version=1"
+      headers:
+        Accept: "application/vnd.min_url+json;version=1"
       dataType: "json"
-      error: (data) ->
-        defaultError data
-        MU.U.trackApiError options.url, data, options.data
+      error: MU.app.view.showApiError
     $.ajax $.extend({}, default_opt, options)
 
   resize: (callback) ->

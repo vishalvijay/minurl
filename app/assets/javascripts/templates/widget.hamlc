@@ -1,0 +1,16 @@
+.main-col
+  %h1
+    MinUrl
+    %span Making over a billion long URLs usable!
+.main-col
+  %form.form-inline#create-form{:role => "form"}
+    .form-group.col-sm-9
+      %label.sr-only{:for => "#url"} Paste your long URL here
+      %input.form-control.input-lg#url{placeholder: "Paste your long URL here", type: "text", name: "url"}
+      %span.error{style: "display: none;"} Invalid URL
+    .col-sm-3
+      %button.btn.btn-default.btn-lg.ladda-button{type: "submit", disabled: "disabled", data-size: "l", data-style: "zoom-out"} MinUrl
+  %br
+  %br
+.main-col
+  %span.small All MinUrl URLs and click analytics are public and can be accessed by anyone.

@@ -23,10 +23,12 @@ class MU.V.Main extends Backbone.View
   setupViews: ->
     @navbarView = new MU.V.Navbar()
     @footerView = new MU.V.Footer()
+    @widgetView = new MU.V.Widget()
 
   renderSubviews: ->
     MU.U.renderView @$(".navbar-container"), @navbarView
     MU.U.renderView @$(".footer-container"), @footerView
+    MU.U.renderView @$(".welcome-section"), @widgetView
   
   registerScreenResize: (key, callback) ->
     @screenResizeCallBacks[key] = callback
@@ -42,3 +44,6 @@ class MU.V.Main extends Backbone.View
     # navbarHeight = @$(".navbar-container").outerHeight()
     # windowHeight = $(window).outerHeight()
     # @$("#welcome-container").css "min-height", windowHeight-navbarHeight
+
+  showApiError: =>
+    alert "Request could not be processed"

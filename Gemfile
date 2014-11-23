@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 
 gem "api-versions"
 gem 'haml'
-gem 'valid_url'
+gem "validate_url"
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
@@ -52,6 +52,9 @@ gem 'execjs'
 gem 'font-awesome-sass'
 
 gem 'modernizr-rails'
+gem 'settingslogic'
+gem "browser"
+gem 'geocoder'
 
 #heroku
 gem 'rails_12factor', group: :production

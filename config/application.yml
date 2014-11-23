@@ -1,0 +1,22 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  domain:
+    host: localhost
+    port: ':3000'
+    protocol: 'http://'
+
+test:
+  <<: *defaults
+  domain:
+    host: localhost
+    port: ':3000'
+    protocol: 'http://'
+
+production:
+  <<: *defaults
+  domain:
+    host: minurl.herokuapp.com
+    port: ''
+    protocol: 'http://'

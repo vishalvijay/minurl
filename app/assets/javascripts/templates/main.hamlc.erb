@@ -1,20 +1,64 @@
 .navbar-container
 .welcome-section
+.container
   .row
-    .main-col.text-ce
-      %h1
-        MinUrl
-        %span Making over a billion long URLs usable!
-    .main-col
-      %form.form-inline{:role => "form"}
-        .form-group.col-sm-9
-          %label.sr-only{:for => "#url"} Paste your long URL here
-          %input.form-control.input-lg#url{placeholder: "Paste your long URL here", type: "text", name: "url"}
-        .col-sm-3
-          %button.btn.btn-default.btn-lg{:type => "submit"} Shorten URL
-      %br
-      %br
-    .main-col
-      %span.small All MinUrl URLs and click analytics are public and can be accessed by anyone.
-
+    .col-md-12
+      .page-header
+        %h1
+          API
+          %small Learn MinUrl open API's
+  .row
+    .col-apis
+      .panel.panel-default
+        .panel-body
+          %h4 By using MinUrl open API's you can utilise all fetures provided by MinUR
+          %h3 Schema
+          All API access is over
+          %b HTTP
+          ,and base url for all api is
+          %b="#{MU.MF.APP_URL}/api/"
+          \. All data is sent and received as
+          %b JSON
+          \.
+          %br
+          %br
+          %h4 Requried headers
+          %code
+            Accept : application/vnd.min_url+json;version=1
+            %br
+            Content-Type : application/json
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Shorten a URL
+        .panel-body
+          %h4 To shorten a long url
+          %h5
+            URL:
+            %code min_urls.json
+          %h5
+            METHORD:
+            %code POST
+          %h5
+            REQUEST:
+            %code
+              {
+                "min_url": {
+                  "url": "https://www.google.com"
+                }
+              }
+          %h5
+            RESPONSE:
+            %code
+              {
+                "id": 2,
+                "url": "https://www.google.com",
+                "token": "1",
+                "token_alias": null,
+                "created_at": "2014-11-22T23:15:17.226Z",
+                "updated_at": "2014-11-22T23:15:17.226Z"
+              }
+          %h5
+            STATUS:
+            %code
+              201
 .footer-container
