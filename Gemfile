@@ -57,6 +57,8 @@ gem "browser"
 gem 'geocoder'
 gem 'backbone-relational-rails'
 gem 'httparty'
+gem 'unicorn'
+gem 'rack-handlers'
 
 #heroku
 gem 'rails_12factor', group: :production
