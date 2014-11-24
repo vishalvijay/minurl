@@ -7,7 +7,6 @@ class MU.App
   migrate: ->
 
   startApp: ->
-    @initData()
     @view = new MU.V.Main()
     @openApp()
 
@@ -15,5 +14,3 @@ class MU.App
     MU.U.renderView $("#mu-app"), @view
     @router = new MU.Router()
     Backbone.history.start root: MU.CN.APP_URL, pushState: true
-
-  initData: ->

@@ -10,9 +10,9 @@
     #bs-minurl-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{:href => "#"} Home
+          %a{:href => "#home"} Home
         %li
-          %a{:href => "#"} API
+          %a{:href => "#api"} API
         %li
-          %a{:href => "#"} About Us
+          %a{:href => "#about-us"} About Us
 .nav-content-fix
