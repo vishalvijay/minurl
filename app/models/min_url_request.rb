@@ -39,7 +39,7 @@ class MinUrlRequest < ActiveRecord::Base
     end
 
     def self.best_referrers mu
-      mu.min_url_requests.group(:ref_url).limit(10).order('id desc').count.to_a.map{|item|
+      mu.min_url_requests.group(:ref_url).limit(10).order('count(*) desc').count.to_a.map{|item|
         name = item[0] ? Addressable::URI.parse(item[0]).host : "Direct"
         {
           href: item[0], count: item[1], name: name
@@ -48,7 +48,7 @@ class MinUrlRequest < ActiveRecord::Base
     end
 
     def self.most_browsers mu
-      mu.min_url_requests.group(:browser).limit(10).order('id desc').count.to_a.map{|item|
+      mu.min_url_requests.group(:browser).limit(10).order('count(*) desc').count.to_a.map{|item|
         {
           name: item[0], count: item[1]
         }
@@ -56,7 +56,7 @@ class MinUrlRequest < ActiveRecord::Base
     end
 
     def self.most_platforms mu
-      mu.min_url_requests.group(:platform).limit(10).order('id desc').count.to_a.map{|item|
+      mu.min_url_requests.group(:platform).limit(10).order('count(*) desc').count.to_a.map{|item|
         {
           name: item[0], count: item[1]
         }
@@ -64,7 +64,7 @@ class MinUrlRequest < ActiveRecord::Base
     end
 
     def self.most_countries mu
-      mu.min_url_requests.group(:country).limit(10).order('id desc').count.to_a.map{|item|
+      mu.min_url_requests.group(:country).limit(10).order('count(*) desc').count.to_a.map{|item|
         {
           name: item[0], count: item[1]
         }

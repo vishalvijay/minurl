@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141122190736) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "min_url_requests", force: true do |t|
     t.string   "ip"
     t.string   "ref_url"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141122190736) do
     t.datetime "updated_at"
   end
 
-  add_index "min_url_requests", ["min_url_id"], name: "index_min_url_requests_on_min_url_id"
+  add_index "min_url_requests", ["min_url_id"], name: "index_min_url_requests_on_min_url_id", using: :btree
 
   create_table "min_urls", force: true do |t|
     t.string   "url",         null: false
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20141122190736) do
     t.datetime "updated_at"
   end
 
-  add_index "min_urls", ["token"], name: "index_min_urls_on_token", unique: true
-  add_index "min_urls", ["token_alias"], name: "index_min_urls_on_token_alias", unique: true
-  add_index "min_urls", ["url"], name: "index_min_urls_on_url", unique: true
+  add_index "min_urls", ["token"], name: "index_min_urls_on_token", unique: true, using: :btree
+  add_index "min_urls", ["token_alias"], name: "index_min_urls_on_token_alias", unique: true, using: :btree
+  add_index "min_urls", ["url"], name: "index_min_urls_on_url", unique: true, using: :btree
 
 end
