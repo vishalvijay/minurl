@@ -56,6 +56,7 @@ gem 'settingslogic'
 gem "browser"
 gem 'geocoder'
 gem 'backbone-relational-rails'
+gem 'httparty'
 
 #heroku
 gem 'rails_12factor', group: :production

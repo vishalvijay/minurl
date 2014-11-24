@@ -19,4 +19,75 @@
       .url
         %span.small Alias : 
         %a{href: @mu.getAliasUrl()}=@mu.getAliasUrl()
-    
+  .col-md-12
+    %hr
+.row.analytics
+  .analytics-col
+    .screenshot
+      %img{src: @mu.getImageUrl(), alt: @mu.getUrl()}
+  .analytics-col
+    .circle
+      .clicks=@mu.getReport().getClicks().total
+    %h4 Total Clicks
+  .analytics-col
+    %h3 Report
+    %h4
+      Link created on
+      =@mu.getCreatedAt()
+    %h4
+      This month (
+      =@mu.getReport().getClicks().this_months.name
+      )
+      clicks :
+      =@mu.getReport().getClicks().this_months.count
+    %h4
+      Last month (
+      =@mu.getReport().getClicks().last_months.name
+      )
+      clicks :
+      =@mu.getReport().getClicks().last_months.count
+    %h4
+      This year (
+      =@mu.getReport().getClicks().this_year.name
+      )
+      clicks :
+      =@mu.getReport().getClicks().this_year.count
+    %h4
+      Last year (
+      =@mu.getReport().getClicks().last_year.name
+      )
+      clicks :
+      =@mu.getReport().getClicks().last_year.count
+.list-row
+  .col-md-3
+    .list-group
+      %a.list-group-item.active{:href => "#"}
+        Best Referrers
+      - for item in @mu.getReport().getBestReferrers()
+        %a.list-group-item{href: item.href, target: "_blank"}
+          %span.badge=item.count
+          =item.name
+  .col-md-3
+    .list-group
+      .list-group-item.active{:href => "#"}
+        Most Browsers
+      - for item in @mu.getReport().getMostBrowsers()
+        .list-group-item
+          %span.badge=item.count
+          =item.name
+  .col-md-3
+    .list-group
+      .list-group-item.active{:href => "#"}
+        Most Platforms
+      - for item in @mu.getReport().getMostPlatforms()
+        .list-group-item
+          %span.badge=item.count
+          =item.name
+  .col-md-3
+    .list-group
+      .list-group-item.active{:href => "#"}
+        Most Countries
+      - for item in @mu.getReport().getMostCountries()
+        .list-group-item
+          %span.badge=item.count
+          =item.name

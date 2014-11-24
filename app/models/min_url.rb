@@ -8,6 +8,7 @@ class MinUrl < ActiveRecord::Base
   has_many :min_url_requests
 
   before_validation :generate_token
+  after_create :pre_request_image
 
   CHARS = ((48..57).to_a+(65..90).to_a+(97..122).to_a).map(&:chr)
 
@@ -84,5 +85,9 @@ class MinUrl < ActiveRecord::Base
       if token_alias_changed? && (MinUrl.find_by_token_or_token_alias token_alias)
         errors.add(:token_alias, "has already been taken")
       end
+    end
+
+    def pre_request_image
+       HTTParty.get url
     end
 end

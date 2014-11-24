@@ -24,4 +24,26 @@
       margin-top: $grid-gutter-width/2
       input, button
         width: 100%
+  .analytics
+    .analytics-col
+      +make-md-column(4)
+      +respond-to
+        margin-top: $grid-gutter-width/2
+      & > div
+        +center-block
+    .circle
+      border: 8px solid $brand-primary
+      display: table !important
+      width: 220px
+      height: 220px
+      +border-radius(50%)
+      .clicks
+        display: table-cell
+        vertical-align: middle
+        font-size: 50px
+  .list-row
+    +make-row
+    margin-top: $grid-gutter-width
+    .list-group-item
+      @extend .text-left
 
