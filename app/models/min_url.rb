@@ -82,7 +82,7 @@ class MinUrl < ActiveRecord::Base
     end
 
     def token_alias_against_token
-      if token_alias_changed? && (MinUrl.find_by_token_or_token_alias token_alias)
+      if errors[:token_alias].blank? && token_alias_changed? && (MinUrl.find_by_token_or_token_alias token_alias)
         errors.add(:token_alias, "has already been taken")
       end
     end

@@ -15,9 +15,9 @@
       .col-md-8.h-f-t
         %ul.list-inline.pull-right
           %li
-            %a Home
+            %a{:href => "#home"} Home
           %li
-            %a API
+            %a{:href => "#api"} API
           %li
-            %a About Us
+            %a{:href => "#about-us"} About Us
 

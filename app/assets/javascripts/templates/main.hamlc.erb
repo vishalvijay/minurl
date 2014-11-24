@@ -1,13 +1,13 @@
 .navbar-container#home
 .welcome-container
-.container
+.container#api
   .row
     .col-md-12
       .page-header
         %h1
           API
           %small Learn MinUrl open API's
-  .row#api
+  .row
     .col-apis
       .panel.panel-default
         .panel-body
@@ -59,5 +59,81 @@
             %code
               success : 201
               error : 422
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Set alias name
+        .panel-body
+          %h4 To set alias name for the short URL
+          %h5
+            URL:
+            %code min_urls/[token].json
+          %h5
+            METHORD:
+            %code PUT
+          %h5
+            REQUEST:
+            %code
+              {
+                "min_url": {
+                  "token_alias": "google"
+                }
+              }
+          %h5
+            RESPONSE:
+            %code
+              :nothing
+          %h5
+            ERROR RESPONSE:
+            %code
+              {"errors":{"token_alias":["has already been taken"]}}
+          %h5
+            STATUS:
+            %code
+              success : 204
+              error : 422
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Show details
+        .panel-body
+          %h4 To see the details of an existing URL by token
+          %h5
+            URL:
+            %code min_urls/[token].json
+          %h5
+            METHORD:
+            %code GET
+          %h5
+            RESPONSE:
+            %code
+              {"id":2,"url":"https://www.google.com","token":"1","token_alias":"google","created_at":"2014-11-23T18:37:38.031Z","updated_at":"2014-11-23T19:18:52.024Z","short_url":"http://localhost:3000/1","alias_url":"http://localhost:3000/google","image_url":"https://api.thumbalizr.com/?url=https://www.google.com&width=300","report":{"clicks":{"total":6,"this_months":{"name":"November","count":6},"last_months":{"name":"October","count":0},"this_year":{"name":"2014","count":6},"last_year":{"name":"2013","count":0}},"best_referrers":[{"href":null,"count":4,"name":"Direct"},{"href":"http://stackoverflow.com/questions/3022163/how-do-i-get-name-of-the-month-in-ruby-on-rails","count":2,"name":"stackoverflow.com"}],"most_browsers":[{"name":"Chrome","count":6}],"most_platforms":[{"name":"linux","count":6}],"most_countries":[{"name":"Unknown","count":1},{"name":"Reserved","count":5}]}}
+          %h5
+            STATUS:
+            %code
+              success : 200
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Alias availability
+        .panel-body
+          %h4 To check availability of alias
+          %h5
+            URL:
+            %code min_urls/is_token_alias_available.json
+          %h5
+            METHORD:
+            %code GET
+          %h5
+            REQUEST:
+            %code
+              {
+                "token_alias": "google"
+              }
+          %h5
+            RESPONSE:
+            %code
+              {"is_available":false}
+          %h5
+            STATUS:
+            %code
+              success : 200
 
 .footer-container#about-us

@@ -9,7 +9,6 @@ class MU.Router extends Backbone.Router
     ), @
 
   index: ->
-    # MU.app.view.renderShopping("index")
 
   back: (url = "") =>
     if @routesHit > 1

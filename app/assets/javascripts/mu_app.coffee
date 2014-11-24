@@ -13,4 +13,4 @@ class MU.App
   openApp: ->
     MU.U.renderView $("#mu-app"), @view
     @router = new MU.Router()
-    Backbone.history.start root: MU.CN.APP_URL, pushState: true
+    Backbone.history.start root: MU.CN.APP_URL
