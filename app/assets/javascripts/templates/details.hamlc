@@ -11,7 +11,7 @@
       %form.form-inline#alias-form{:role => "form"}
         .form-group.col-sm-9{data-toggle: "tooltip", data-placement: "top", title: "A custom name for generated url"}
           %label.sr-only{:for => "#alias"} Alias name for your url
-          %input.form-control#alias{placeholder: "Alias name for your url", type: "text", name: "alias"}
+          %input.form-control#alias{placeholder: "Alias name for your url", type: "text", name: "alias", autocomplete: "off", autocapitalize: "off"}
           %span.error{style: "display: none;"} Alias not available
         .col-sm-3
           %button.btn.btn-default.ladda-button{type: "submit", disabled: "disabled", data-style: "zoom-out"} Alias It
