@@ -17,6 +17,6 @@ test:
 production:
   <<: *defaults
   domain:
-    host: min-url.herokuapp.com
+    host: mnul.in
     port: ''
     protocol: 'http://'
