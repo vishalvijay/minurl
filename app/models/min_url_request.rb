@@ -72,7 +72,7 @@ class MinUrlRequest < ActiveRecord::Base
     end
 
     def validate_country
-      self.country = "Unknown" if country == "Reserved"
+      self.country = "Unknown" if country == "Reserved" || !country
     end
 
 end
